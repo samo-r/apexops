@@ -376,7 +376,7 @@ pytest
 
 | Priority | Improvement |
 |---|---|
-| 🔴 High | **Per-organization roles** — `Role` has no `org_id`, making roles visible across all tenants. This is a data isolation gap and will be addressed as a priority. |
-| 🟡 Medium | **Email validation** — `User.email` and `Organization.email` are plain strings. Pydantic's `EmailStr` will be added to enforce format at the API boundary. |
-| 🟡 Medium | **Structured date of birth** — `User.dob` is a plain string. Will migrate to `datetime.date` or a regex-annotated field. |
-| 🟢 Low | **Assignment status enum** — `Assignment.status` is a free-form string. A `StrEnum` (`pending`, `in_progress`, `done`, `cancelled`) will replace it. |
+| High | **Per-organization roles** — `Role` has no `org_id`, making roles visible across all tenants. This is a data isolation gap and will be addressed as a priority. |
+| Medium | **Email validation** — `User.email` and `Organization.email` are plain strings. Pydantic's `EmailStr` will be added to enforce format at the API boundary. |
+| Medium | **Structured date of birth** — `User.dob` is a plain string. Will migrate to `datetime.date` or a regex-annotated field. |
+| Low | **Assignment status enum** — `Assignment.status` is a free-form string. A `StrEnum` (`pending`, `in_progress`, `done`, `cancelled`) will replace it. |
