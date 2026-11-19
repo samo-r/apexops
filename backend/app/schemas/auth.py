@@ -1,4 +1,6 @@
-from pydantic import BaseModel
+from datetime import datetime
+
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class TokenResponse(BaseModel):
@@ -6,8 +8,13 @@ class TokenResponse(BaseModel):
     token_type: str = "bearer"
 
 
-class UserProfileResponse(BaseModel):
-    user_id: str
-    name: str
-    email: str
-    salary: str | None = None
+class JWTPayload(BaseModel):
+    """Validated claims carried by an ApexOps access token."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    sub: str = Field(min_length=1)
+    org_id: str = Field(min_length=1)
+    role: str = Field(min_length=1)
+    permissions: list[str]
+    exp: datetime | None = None
